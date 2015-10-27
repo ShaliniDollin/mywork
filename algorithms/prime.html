@@ -1,0 +1,42 @@
+<html>
+<body>
+  <p> Based on input find is prime or not</p>
+  <form onsubmit="return false">
+  Input:<input type="number" placeholder="Number" name="num1">
+  <input type="submit" name="submit" onclick="isprime()">
+</form>
+  <div id="demo">
+  </div>
+</body>
+<script type="text/javascript">
+    var isprime = function() {
+      var flag =0;
+      var num = document.getElementsByName('num1')[0].value;  //it returns node list so using 0
+      if(!num){
+        alert("Enter a Number");
+        return;
+      }
+      else {
+          if(isNaN(num)){
+              alert("Not a Number");
+              return;
+          }
+          else if(num <= 0) { alert("positive number please"); return;}
+          else if(num == 1){ document.getElementById('demo').innerHTML = "Not a Prime Number"; return;}
+          else if(num == 2){ document.getElementById('demo').innerHTML = "Is Prime Number"; return;}
+          else if(num%2 ==  0){ document.getElementById('demo').innerHTML = "Not a Prime Number"; return;}
+        for (var i = 3; i<num; i=i+2){
+          if(num%i == 0){
+
+            document.getElementById('demo').innerHTML = "Not a Prime Number";
+            return;
+          }
+          else{
+            document.getElementById('demo').innerHTML = "Is Prime Number";
+            return;
+          }
+        }
+      }
+    }
+     </script>
+</html>
